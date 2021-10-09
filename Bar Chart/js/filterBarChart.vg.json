@@ -21,7 +21,7 @@
         {"filter": "region == null || datum.WHO_REGION == region"}
     ],
     "encoding": {
-        "x": {"field": "WHO_REGION", "type": "nominal", "axis": {"labelAngle": 0}}
+        "x": {"field": "WHO_REGION", "type": "nominal", "axis": {"labelAngle": 0}, "title": "WHO Region"}
     },
     "layer": [
     {

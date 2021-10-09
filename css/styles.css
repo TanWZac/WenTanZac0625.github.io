@@ -1,5 +1,6 @@
   h1{
 	font-weight: 900;
+  font-size: 70px;
   }
   body{
   background-color: lightgray;
@@ -31,4 +32,12 @@
   }
   .small-font{
 	  font-size: 14px;
+  }
+  p{
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+  }
+  h2{
+    font-family: 'Lora', sans-serif;
+    font-size: 25px;
   }
