@@ -1,0 +1,70 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {"text": "Covid-19 Vaccination Rate", 
+      "subtitle":"Cumulative total vaccine doses administered per 100 population"},
+    "width": 600,
+    "height": 400,
+    "params": [
+      {
+        "name": "region",
+        "bind":
+        {
+          "input": "select", 
+          "options":[null,"AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"],
+          "labels": ["Show All", "African Region", "Region of the Americas","Eastern Mediterranean Region", "Western Pacific Region",
+          "Europe Region", "South-East Asia Region", "Other Region"], 
+          "name": "Region : "
+        }
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/WenTanZac0625/FIT3179/main/Map/js/world_map.geom.json",
+      "format": {"type": "topojson","feature": "world.geo"}
+    },
+    "layer":[
+      {
+        "transform": [
+          {"calculate": "'Data is not available in ' + datum.properties.geounit", "as": "note"}
+         ],
+         "mark":{"type": "geoshape", "fill":"lightgray", "stroke":"white"},
+         "encoding":{"tooltip":{"field":"note"}}
+      },
+      {
+        "transform": [
+          {"lookup": "properties.geounit",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/WenTanZac0625/FIT3179/main/data/Covid_Regional_Vaccination.csv"
+            },
+            "key": "COUNTRY",
+            "fields": ["TOTAL_VACCINATIONS_PER100", "WHO_REGION"]
+          }
+        },
+        {"filter": " datum.WHO_REGION == region || region == null"}
+      ],
+      "projection": {"type": "equalEarth"},
+      "selection":{"Region":{"type":"multi", "field":["WHO_REGION"],"bind":"legend"}},
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "TOTAL_VACCINATIONS_PER100",
+          "type": "quantitative",
+          "title": "Total Vaccination",
+          "scale": {"type": "log"}
+        },
+        "opacity":{
+          "condition":{"selection": "Region", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "properties.geounit", "type": "nominal", "title": "Country"},
+          {"field": "TOTAL_VACCINATIONS_PER100", "type": "quantitative", "title": "Total Vaccination"}
+        ]
+      }
+    }    
+  ]
+}
+
+
+
+  

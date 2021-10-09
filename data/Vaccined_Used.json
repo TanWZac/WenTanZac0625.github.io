@@ -1,0 +1,152 @@
+[
+    {
+      "FIELD1": "Pfizer BioNTech - Comirnaty",
+      "AFRO": 4,
+      "AMRO": 39,
+      "EMRO": 18,
+      "EURO": 5,
+      "OTHER": 0,
+      "SEARO": 6,
+      "WPRO": 22
+    },
+    {
+      "FIELD1": "Janssen - Ad26.COV 2.5",
+      "AFRO": 3,
+      "AMRO": 15,
+      "EMRO": 16,
+      "EURO": 24,
+      "OTHER": 0,
+      "SEARO": 5,
+      "WPRO": 14
+    },
+    {
+      "FIELD1": "Pfizer BioNTech - Comirnaty",
+      "AFRO": 4,
+      "AMRO": 39,
+      "EMRO": 18,
+      "EURO": 5,
+      "OTHER": 0,
+      "SEARO": 6,
+      "WPRO": 22
+    },
+    {
+      "FIELD1": "SII - Covishield",
+      "AFRO": 39,
+      "AMRO": 22,
+      "EMRO": 10,
+      "EURO": 0,
+      "OTHER": 0,
+      "SEARO": 9,
+      "WPRO": 7
+    },
+    {
+      "FIELD1": "AstraZeneca - AZD1222",
+      "AFRO": 1,
+      "AMRO": 1,
+      "EMRO": 0,
+      "EURO": 13,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 0
+    },
+    {
+      "FIELD1": "Gamaleya - Sputnik V",
+      "AFRO": 5,
+      "AMRO": 11,
+      "EMRO": 15,
+      "EURO": 0,
+      "OTHER": 0,
+      "SEARO": 5,
+      "WPRO": 5
+    },
+    {
+      "FIELD1": "Moderna - mRNA-1273",
+      "AFRO": 3,
+      "AMRO": 17,
+      "EMRO": 9,
+      "EURO": 14,
+      "OTHER": 1,
+      "SEARO": 7,
+      "WPRO": 15
+    },
+    {
+      "FIELD1": "CanSino - Ad5-nCOV",
+      "AFRO": 0,
+      "AMRO": 4,
+      "EMRO": 1,
+      "EURO": 0,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 2
+    },
+    {
+      "FIELD1": "Bharat - Covaxin",
+      "AFRO": 5,
+      "AMRO": 1,
+      "EMRO": 2,
+      "EURO": 0,
+      "OTHER": 0,
+      "SEARO": 2,
+      "WPRO": 1
+    },
+    {
+      "FIELD1": "Beijing CNBG - Inactivated",
+      "AFRO": 0,
+      "AMRO": 0,
+      "EMRO": 0,
+      "EURO": 2,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 0
+    },
+    {
+      "FIELD1": "QazVac",
+      "AFRO": 0,
+      "AMRO": 0,
+      "EMRO": 0,
+      "EURO": 1,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 0
+    },
+    {
+      "FIELD1": "Sinopharm/HayatVax",
+      "AFRO": 0,
+      "AMRO": 0,
+      "EMRO": 0,
+      "EURO": 1,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 0
+    },
+    {
+      "FIELD1": "AstraZeneca - Vaxzevria",
+      "AFRO": 1,
+      "AMRO": 36,
+      "EMRO": 15,
+      "EURO": 1,
+      "OTHER": 0,
+      "SEARO": 8,
+      "WPRO": 23
+    },
+    {
+      "FIELD1": "ZF2001",
+      "AFRO": 0,
+      "AMRO": 0,
+      "EMRO": 0,
+      "EURO": 1,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 0
+    },
+    {
+      "FIELD1": "Wuhan CNBG - Inactivated",
+      "AFRO": 0,
+      "AMRO": 2,
+      "EMRO": 0,
+      "EURO": 0,
+      "OTHER": 0,
+      "SEARO": 0,
+      "WPRO": 1
+    }
+   ]

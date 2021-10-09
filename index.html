@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <style>h1{text-align: center;}</style>
+</head>
+<body>
+<div class = "page">
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h1>War Against Covid</h1>
+      </div>
+  </div>
+  
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <h2>This is the first section</h2>
+        <p>The first column is used for description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+      </div>
+      </div>
+    <div class="pure-u-2-3">
+      <div id="vis1"  class="vis-container"></div>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <div class="pure-u-2-3">
+      <div id="vis2"  class="vis-container"></div>
+    </div>
+    <div class="pure-u-1-3">
+      <div class="description description-right">
+        <h2>This is the second section</h2>
+        <p>Similar to the previous section, but the colum partition is swapped. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript">
+      var vis1 = "Map/js/vaccination.vg.json";
+      var vis2 = "Bar Chart/js/filterBarChart.vg.json";
+      
+      
+      vegaEmbed('#vis1', vis1).then(function(result) {}).catch(console.error);
+      vegaEmbed('#vis2', vis2).then(function(result) {}).catch(console.error);
+    </script>
+
+
+
+</body>
+</html>

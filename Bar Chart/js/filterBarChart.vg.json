@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Regional Vaccination Status",
+    "width": 600,
+    "height": 400,
+    "data": {"url": "https://raw.githubusercontent.com/WenTanZac0625/FIT3179/main/data/vaccination_data.csv"},
+    "params": [
+        {
+            "name": "region",
+            "bind":
+            {
+              "input": "select", 
+              "options":[null,"AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"],
+              "labels": ["Show All", "African Region", "Region of the Americas","Eastern Mediterranean Region", "Western Pacific Region",
+              "Europe Region", "South-East Asia Region", "Other Region"], 
+              "name": "Region : "
+            }
+          }
+    ],
+    "transform": [
+        {"filter": "region == null || datum.WHO_REGION == region"}
+    ],
+    "encoding": {
+        "x": {"field": "WHO_REGION", "type": "nominal", "axis": {"labelAngle": 0}}
+    },
+    "layer": [
+    {
+        "mark": {"type": "bar","xOffset": -10, "size": 20, "color": "lightblue"},
+        "encoding": {
+          "y": {
+              "aggregate":"sum",
+              "field": "PERSONS_FULLY_VACCINATED_PER100",
+              "scale": {"domain": [0, 120]},
+              "axis": {"title": "", "ticks": false, "labelAlign":"right", "grid": false}
+          },
+          "tooltip":[
+              {"field": "PERSONS_FULLY_VACCINATED_PER100", "type": "quantitative", "title": "Fully Vaccinated"}
+          ]
+        }
+    },
+      {
+        "mark": {"type": "bar", "size": 20, "xOffset": 10, "color": "skyblue"},
+        "encoding": {
+          "y": {
+            "aggregate":"sum",
+            "field": "PERSONS_VACCINATED_1PLUS_DOSE_PER100",
+            "scale": {"domain": [0, 120]},
+            "axis": {"title": "Total Vaccination per Region" , "ticks": false, "labelAlign":"right", "grid": false}
+          },
+          "tooltip":[
+              {"field": "PERSONS_VACCINATED_1PLUS_DOSE_PER100", "type": "quantitative","title":"Half Vaccinated"}
+          ]
+        }
+      }
+    ]
+}
