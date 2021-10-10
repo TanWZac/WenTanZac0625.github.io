@@ -25,32 +25,32 @@
     },
     "layer": [
     {
-        "mark": {"type": "bar","xOffset": -10, "size": 20, "color": "lightblue"},
-        "encoding": {
-          "y": {
-              "aggregate":"sum",
-              "field": "PERSONS_FULLY_VACCINATED_PER100",
-              "scale": {"domain": [0, 120]},
-              "axis": {"title": "", "ticks": false, "labelAlign":"right", "grid": false}
-          },
-          "tooltip":[
-              {"field": "PERSONS_FULLY_VACCINATED_PER100", "type": "quantitative", "title": "Fully Vaccinated"}
-          ]
-        }
-    },
-      {
-        "mark": {"type": "bar", "size": 20, "xOffset": 10, "color": "skyblue"},
-        "encoding": {
-          "y": {
+      "mark": {"type": "bar","xOffset": -10, "size": 20, "color": "lightblue"},
+      "encoding": {
+        "y": {
             "aggregate":"sum",
-            "field": "PERSONS_VACCINATED_1PLUS_DOSE_PER100",
-            "scale": {"domain": [0, 120]},
-            "axis": {"title": "Total Vaccination per Region" , "ticks": false, "labelAlign":"right", "grid": false}
-          },
-          "tooltip":[
-              {"field": "PERSONS_VACCINATED_1PLUS_DOSE_PER100", "type": "quantitative","title":"Half Vaccinated"}
-          ]
-        }
+            "field": "PERSONS_FULLY_VACCINATED_PER100",
+            "scale": {"domain": [0, 3500]},
+            "axis": {"title": "", "ticks": false, "labelAlign":"right", "grid": false}
+        },
+        "tooltip":[
+            {"aggregate":"sum","field": "PERSONS_FULLY_VACCINATED_PER100", "type": "quantitative", "title": "Fully Vaccinated"}
+        ]
       }
-    ]
+    },
+    {
+      "mark": {"type": "bar", "size": 20, "xOffset": 10, "color": "skyblue"},
+      "encoding": {
+        "y": {
+          "aggregate":"sum",
+          "field": "PERSONS_VACCINATED_1PLUS_DOSE_PER100",
+          "scale": {"domain": [0, 3500]},
+          "axis": {"title": "Total Vaccination per Region" , "ticks": false, "labelAlign":"right", "grid": false}
+        },
+        "tooltip":[
+            {"aggregate":"sum", "field":"PERSONS_VACCINATED_1PLUS_DOSE_PER100", "type": "quantitative","title":"Half Vaccinated"}
+        ]
+      }
+    }
+  ]
 }
