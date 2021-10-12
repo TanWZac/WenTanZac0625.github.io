@@ -1,0 +1,202 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v3.0.json",
+    "title": "Vaccine Distribution for each Region",
+    "width": 600,
+    "height": 550,
+    "data": [
+      {
+        "name": "Vaccine Used",
+        "values": {
+          "aggregations": {
+            "table": {
+              "buckets": [
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "AFRO"}, "total": 4},
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "AMRO"}, "total": 39},
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "EMRO"}, "total": 18},
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "EURO"}, "total": 5},
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "SEARO"}, "total": 6},
+                {"key": {"from": "Pfizer BioNTech - Comirnaty", "to": "WPRO"}, "total": 22},
+  
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "AFRO"}, "total": 3},
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "AMRO"}, "total": 15},
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "EMRO"}, "total": 16},
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "EURO"}, "total": 24},
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "SEARO"}, "total": 5},
+                {"key": {"from": "Janssen - Ad26.COV 2.5", "to": "WPRO"}, "total": 14},
+  
+                {"key": {"from": "SII - Covishield", "to": "AFRO"}, "total": 39},
+                {"key": {"from": "SII - Covishield", "to": "AMRO"}, "total": 22},
+                {"key": {"from": "SII - Covishield", "to": "EMRO"}, "total": 10},
+                {"key": {"from": "SII - Covishield", "to": "SEARO"}, "total": 9},
+                {"key": {"from": "SII - Covishield", "to": "WPRO"}, "total": 7},
+  
+                {"key": {"from": "AstraZeneca - AZD1222", "to": "AFRO"}, "total": 1},
+                {"key": {"from": "AstraZeneca - AZD1222", "to": "AMRO"}, "total": 1},
+                {"key": {"from": "AstraZeneca - AZD1222", "to": "EURO"}, "total": 13},
+  
+                {"key": {"from": "Moderna - mRNA-1273", "to": "AFRO"}, "total": 3},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "AMRO"}, "total": 17},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "EMRO"}, "total": 9},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "EURO"}, "total": 14},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "OTHER"}, "total": 1},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "SEARO"}, "total": 7},
+                {"key": {"from": "Moderna - mRNA-1273", "to": "WPRO"}, "total": 15},
+  
+                {"key": {"from": "Gamaleya - Sputnik V", "to": "AFRO"}, "total": 5},
+                {"key": {"from": "Gamaleya - Sputnik V", "to": "AMRO"}, "total": 11},
+                {"key": {"from": "Gamaleya - Sputnik V", "to": "EMRO"}, "total": 15},
+                {"key": {"from": "Gamaleya - Sputnik V", "to": "SEARO"}, "total": 5},
+                {"key": {"from": "Gamaleya - Sputnik V", "to": "WPRO"}, "total": 5},
+  
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "AFRO"}, "total": 1},
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "AMRO"}, "total": 36},
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "EMRO"}, "total": 15},
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "EURO"}, "total": 1},
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "SEARO"}, "total": 8},
+                {"key": {"from": "AstraZeneca - Vaxzevria", "to": "WPRO"}, "total": 23},
+  
+                {"key": {"from": "Bharat - Covaxin", "to": "AFRO"}, "total": 5},
+                {"key": {"from": "Bharat - Covaxin", "to": "AMRO"}, "total": 1},
+                {"key": {"from": "Bharat - Covaxin", "to": "EMRO"}, "total": 2},
+                {"key": {"from": "Bharat - Covaxin", "to": "SEARO"}, "total": 2},
+                {"key": {"from": "Bharat - Covaxin", "to": "WPRO"}, "total": 1} 
+              ]
+            }
+          }
+        },
+        "format": {"property": "aggregations.table.buckets"},
+        "transform": [
+          {"type": "formula", "expr": "datum.key.from", "as": "from"},
+          {"type": "formula", "expr": "datum.key.to", "as": "to"},
+          {"type": "formula", "expr": "datum.total", "as": "size"},
+          {"type": "filter", "expr": "Region == datum.to || Region == 'Show All'"}
+        ]
+      },
+      {
+        "name": "Startnode",
+        "source": "Vaccine Used",
+        "transform": [
+          {"type": "filter",  "expr": "datum.from || datum.to"},
+          {"type": "formula", "expr" : "datum.from+datum.to", "as": "key"},
+          {"type": "fold", "fields": ["from", "to"], "as": ["vaccine", "region"]},
+          {"type": "formula", "expr": "datum.vaccine == 'from' ? datum.from + datum.to : datum.to + datum.from", "as": "Expr"},
+          {"type": "stack", "groupby": ["vaccine"], "sort": {"field": "Expr", "order": "descending"}, "field": "size"},
+          {"type": "formula", "expr": "(datum.y0+datum.y1)/2", "as": "yc"}
+        ]
+      },
+      {
+        "name": "groups",
+        "source": "Startnode",
+        "transform": [
+          {"type": "aggregate", "groupby": ["vaccine", "region"], "fields": ["size"], "ops": ["sum"], "as": ["total"]},
+          {"type": "stack", "groupby": ["vaccine"], "sort": {"field": "region", "order": "descending"}, "field": "total"},
+          {"type": "formula", "expr": "scale('y', datum.y0)", "as": "scale_y0"},
+          {"type": "formula", "expr": "scale('y', datum.y1)", "as": "scale_y1"},
+          {"type": "formula", "expr": "datum.vaccine == 'from'", "as": "Vax"},
+          {"type": "formula", "expr": "datum.total/domain('y')[1]", "as": "precent"}
+        ]
+      },
+      {
+        "name": "Endnode",
+        "source": "Startnode",
+        "transform": [
+          {"type": "filter", "expr": "datum.vaccine == 'to'"}
+        ]
+      },
+      {
+        "name": "Edges",
+        "source": "Startnode",
+        "transform": [
+          {"type": "filter", "expr": "datum.vaccine == 'from'"},
+          {"type": "lookup", "from": "Endnode", "key": "key", "fields": ["key"],"as": ["target"]},
+          {"type": "linkpath", "orient": "horizontal", "shape": "diagonal",
+            "sourceY": {"expr": "scale('y', datum.yc)"},
+            "sourceX": {"expr": "scale('x', 'from') + bandwidth('x')"},
+            "targetY": {"expr": "scale('y', datum.target.yc)"},
+            "targetX": {"expr": "scale('x', 'to')"}
+          },
+          {"type": "formula", "expr": "range('y')[0]-scale('y', datum.size)","as": "strokeSize"},
+          {"type": "formula","expr": "datum.size/domain('y')[1]","as": "precent"}
+        ]
+      }
+    ],
+    "scales": [
+      {"name": "x", "type": "band", "range": "width", "domain": ["from", "to"],"paddingInner": 0.98},
+      {"name": "y", "type": "linear", "range": "height", "domain": {"data": "Startnode", "field": "y1"}},
+      {"name": "color", "type": "ordinal", "range": "category", "domain": {"data": "Vaccine Used", "fields": ["from", "to"]}},
+      {"name": "vaccineNames", "type": "ordinal","range": ["Vaccine Types", "Region"],"domain": ["from", "to"]}
+    ],
+    "axes": [
+      {"orient": "bottom","scale": "x","ticks": false, "grid": false,"encode": {"labels": {"update": {"text": {"scale": "vaccineNames", "field": "value"}}}}},
+      {"orient": "left", "scale": "y", "ticks": false, "grid": false}
+  
+    ],
+    "marks": [
+      {
+        "type": "rect", 
+        "from": {"data": "Startnode"},
+        "encode": {
+          "enter": {
+            "stroke": {"value": "#fff"},
+            "strokeWidth": {"value": 2},
+            "width": {"scale": "x", "band": 1},
+            "x": {"scale": "x", "field": "vaccine"},
+            "y": {"field": "y0", "scale": "y"},
+            "y2": {"field": "y1", "scale": "y"}
+          }
+        }
+      },
+      {
+        "type": "path",  
+        "from": {"data": "Edges"},
+        "clip": true,
+        "encode": {
+          "update": {
+            "stroke": [
+              {"test": "datum.vaccine =='to'", "scale": "color", "field": "from"},
+              {"scale": "color", "field": "from"}
+            ],
+            "strokeWidth": {"field": "strokeSize"},
+            "path": {"field": "path"},
+            "strokeOpacity": {"signal": "(Hover.from == datum.from || Hover.to == datum.to) ? 0.8 : 0.2"},
+            "tooltip": {"signal": "datum.from + ' → ' + datum.to + '  ' +  '(' + format(datum.precent, '.1%') + ')' + ' ' + datum.size "}
+          },
+          "hover": {"strokeOpacity": {"value": 1}}
+        }
+      },
+      {
+        "type": "text",
+        "from": {"data": "groups"},
+        "interactive": false,
+        "encode": {
+          "update": {
+            "x": {"signal": "scale('x', datum.vaccine) + (datum.Vax ? bandwidth('x') + 10 : -10)"},
+            "yc": {"signal": "(datum.scale_y0 + datum.scale_y1)/2"},
+            "align": {"signal": "datum.Vax ? 'left' : 'right'"},
+            "baseline": {"value": "middle"},
+            "text": {"signal": "abs(datum.scale_y0 - datum.scale_y1) ? datum.region : ''"}
+          }
+        }
+      }
+    ],
+    "signals": [
+      {
+        "name": "Hover",
+        "value": {},
+        "on": [
+          {"events": "@groupMark:mouseover","update": "{from:datum.vaccine=='from' && datum.region, to:datum.vaccine=='to' && datum.region}"},
+          {"events": "mouseout", "update": "{}"}
+        ]
+      },
+      {
+        "name": "Region",
+        "value": "Show All",
+        "bind":
+        {
+          "input": "select", 
+          "options":["Show All","AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"]
+        }
+      }
+    ]
+  }
+  

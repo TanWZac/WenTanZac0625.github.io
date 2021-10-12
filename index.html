@@ -57,15 +57,30 @@
     </div>
   </div>
 
+  <div class="pure-g">
+    <div class="pure-u-1-3">
+      <div class="description description-left">
+        <h2>Vaccine Distribution</h2>
+        <p>From the distribution of vaccine we can have a deeper understanding where each vaccine is supplied and the supply and demand chain between
+           vaccine distributor and each region recognition on a particular vaccine<br><br>
+          Pfizer BioNTech - Comirnaty has the highest distribution rate among the other vaccine with a total of 94 countries using their vaccine.</p>
+      </div>
+      </div>
+    <div class="pure-u-2-3">
+      <div id="vis3"  class="vis-container"></div>
+    </div>
+  </div>
+
     <script type="text/javascript">
       var vis1 = "Map/js/vaccination.vg.json";
       var vis2 = "Bar Chart/js/filterBarChart.vg.json";
-      
+      var vis3 = "Sankey/Sankey.vg.json";
       
       vegaEmbed('#vis1', vis1).then(function(result) {}).catch(console.error);
       vegaEmbed('#vis2', vis2).then(function(result) {}).catch(console.error);
-    </script>
+      vegaEmbed('#vis3', vis3).then(function(result) {}).catch(console.error);
 
+    </script>
 
 
 </body>

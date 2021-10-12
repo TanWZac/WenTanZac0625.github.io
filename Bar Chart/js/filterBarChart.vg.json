@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Regional Vaccination Status",
-    "width": 600,
+    "width": 540,
     "height": 400,
     "data": {"url": "https://raw.githubusercontent.com/WenTanZac0625/FIT3179/main/data/vaccination_data.csv"},
     "params": [
@@ -11,7 +11,7 @@
             {
               "input": "select", 
               "options":[null,"AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"],
-              "labels": ["Show All", "African Region", "Region of the Americas","Eastern Mediterranean Region", "Western Pacific Region",
+              "labels": ["Show All", "African Region - AFRO", "Region of the Americas","Eastern Mediterranean Region", "Western Pacific Region",
               "Europe Region", "South-East Asia Region", "Other Region"], 
               "name": "Region : "
             }
@@ -25,7 +25,7 @@
     },
     "layer": [
     {
-      "mark": {"type": "bar","xOffset": -10, "size": 20, "color": "lightblue"},
+      "mark": {"type": "bar","xOffset": -10, "size": 20, "color": "skyblue"},
       "encoding": {
         "y": {
             "aggregate":"sum",
@@ -39,7 +39,7 @@
       }
     },
     {
-      "mark": {"type": "bar", "size": 20, "xOffset": 10, "color": "skyblue"},
+      "mark": {"type": "bar", "size": 20, "xOffset": 10, "color": "lightcoral"},
       "encoding": {
         "y": {
           "aggregate":"sum",
