@@ -52,5 +52,11 @@
         ]
       }
     }
-  ]
+  ],"config": {
+    "axis": {"labelFont": "Nunito"},
+    "legend": {"labelFont":"Nunito"},
+    "header": {"labelFont":"Nunito"},
+    "mark": {"font":"Nunito"},
+    "title":{"font":"Lora","fontSize":20}
+  }
 }

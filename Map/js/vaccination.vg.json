@@ -4,7 +4,7 @@
       "subtitle":"Cumulative total vaccine doses administered per 100 population",
     "fontSize": 20,
   "subtitleFontSize": 15},
-    "width": 600,
+    "width": 650,
     "height": 400,
     "params": [
       {
@@ -64,7 +64,11 @@
         ]
       }
     }    
-  ]
+  ],"config": {
+    "legend": {"labelFont":"Nunito","orient": "bottom", "layout": {"bottom": {"anchor": "middle"}}},
+    "title":{"font":"Lora", "subtitleFont":"Lora"}
+    
+  }
 }
 
 

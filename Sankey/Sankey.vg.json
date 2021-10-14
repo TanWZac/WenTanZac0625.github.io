@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v3.0.json",
-    "title": "Vaccine Distribution for each Region",
+    "title": "Distribution of Vaccine (Region)",
     "width": 600,
     "height": 550,
     "data": [
@@ -197,6 +197,12 @@
           "options":["Show All","AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"]
         }
       }
-    ]
+    ],"config": {
+      "axis": {"labelFont": "Nunito"},
+      "legend": {"labelFont":"Nunito"},
+      "header": {"labelFont":"Nunito"},
+      "mark": {"font":"Nunito"},
+      "title":{"font":"Lora","fontSize":20}
+    }
   }
   
