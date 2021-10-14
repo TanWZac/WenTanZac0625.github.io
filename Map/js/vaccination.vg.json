@@ -13,8 +13,8 @@
         {
           "input": "select", 
           "options":[null,"AFRO","AMRO","EMRO", "WPRO", "EURO", "SEARO", "OTHER"],
-          "labels": ["Show All", "African Region", "Region of the Americas","Eastern Mediterranean Region", "Western Pacific Region",
-          "Europe Region", "South-East Asia Region", "Other Region"], 
+          "labels": ["Show All", "African Region - AFRO", "Region of the Americas - AMRO","Eastern Mediterranean Region - EMRO", "Western Pacific Region - WPRO",
+              "Europe Region - EURO", "South-East Asia Region - SEARO", "Other Region  - OTHER"], 
           "name": "Region : "
         }
       }
