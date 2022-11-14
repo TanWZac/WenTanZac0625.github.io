@@ -1,4 +1,3 @@
 # War Against Covid
 
-
-~globe
+:link: https://tanwzac.github.io/
